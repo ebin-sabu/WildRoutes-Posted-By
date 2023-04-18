@@ -96,6 +96,7 @@ const createRoute = async(req, res) => {
     
     const{title, region, location, description, tag, bookingLink, imageLink} = req.body
     // Add doc to db
+    //Added user_id and user_name
     try{
         const user_id = req.user._id
         const madeBy = req.user.name

@@ -14,7 +14,7 @@ const requireAuth= async (req, res, next) => {
 
     try{
         const {_id} = jwt.verify(token, process.env.SECRET)
-
+        //Passing user.name so can be used for Post
         req.user = await User.findOne({_id}).select('_id')
         req.user = await User.findOne({_id}).select('name')
         next()

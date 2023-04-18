@@ -49,6 +49,7 @@ const routeSchema = new Schema({
             type: String
         }
     ],
+    //Added User_id this needs to be used so that only th right user can delete a post
     user_id:{
         type: String,
         required: true
