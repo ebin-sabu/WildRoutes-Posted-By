@@ -16,7 +16,6 @@ const RouteDetails = ({route}) => {
             }
         })
         const json = await response.json()
-        const idCode = route._id
         if(response.ok){
             dispatch({type: 'UPDATE_LIKES', payload: json})
             /*Reload is a temporary solution. Ideally, it would update without refreshing.*/
@@ -36,7 +35,25 @@ const RouteDetails = ({route}) => {
             }
         })
         const json = await response.json()
-        const idCode = route._id
+        if(response.ok){
+            dispatch({type: 'DELETE_ROUTE', payload: json})
+            /*Reload is a temporary solution. Ideally, it would update without refreshing.*/
+            //window.location.reload(); 
+        }
+    }
+
+    const deletePost = async()=>{
+        if(!user){
+            return
+        }
+
+        const response = await fetch('/api/routes/' + route._id, {
+            method: 'DELETE',
+            headers:{
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
         if(response.ok){
             dispatch({type: 'DELETE_ROUTE', payload: json})
             /*Reload is a temporary solution. Ideally, it would update without refreshing.*/
@@ -46,7 +63,7 @@ const RouteDetails = ({route}) => {
 
     return(
         <div id="route-details">
-            <img id ="myImg" src={route.imageLink}></img>
+            <img id ="myImg" src={route.imageLink} alt='AdventureImage'></img>
             <h7>{route.likedBy.length} likes</h7>
             <h3>📍 {route.location}</h3>
             <h2>{route.title}</h2> 
@@ -63,6 +80,12 @@ const RouteDetails = ({route}) => {
                 : 
                     <i className="material-symbols-outlined"onClick={likePost}>favorite</i>
             }
+            {route.user_id === user.idCode 
+                ? 
+                <span class="material-symbols-outlined" onClick={deletePost}>delete</span>
+                :
+                    <span></span>
+                }
             
         </div>
     )
