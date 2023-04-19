@@ -100,7 +100,7 @@ const createRoute = async(req, res) => {
     try{
         const user_id = req.user._id
         const madeBy = req.user.name
-        const route = await Route.create({title, region, location, description, tag, madeBy, bookingLink, imageLink,user_id})
+        const route = await Route.create({title, region, location, description, tag, bookingLink, imageLink,madeBy,user_id})
         res.status(200).json(route)
     }catch(error){
         res.status(400).json({error: error.message})

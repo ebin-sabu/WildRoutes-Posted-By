@@ -17,6 +17,8 @@ const requireAuth= async (req, res, next) => {
         //Passing user.name so can be used for Post
         req.user = await User.findOne({_id}).select('_id')
         req.user = await User.findOne({_id}).select('name')
+        req.user = await User.findOne({_id}).select('location')
+    
         next()
 
     }catch(error){

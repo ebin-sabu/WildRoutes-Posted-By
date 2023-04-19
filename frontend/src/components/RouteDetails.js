@@ -63,7 +63,7 @@ const RouteDetails = ({route}) => {
 
     return(
         <div id="route-details">
-            <img id ="myImg" src={route.imageLink} alt='AdventureImage'></img>
+            <img id ="myImg" src={route.imageLink}></img>
             <h7>{route.likedBy.length} likes</h7>
             <h3>📍 {route.location}</h3>
             <h2>{route.title}</h2> 
@@ -85,7 +85,7 @@ const RouteDetails = ({route}) => {
                 <span class="material-symbols-outlined" onClick={deletePost}>delete</span>
                 :
                     <span></span>
-                }
+            }
             
         </div>
     )
