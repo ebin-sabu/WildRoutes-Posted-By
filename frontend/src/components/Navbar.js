@@ -23,7 +23,7 @@ const Navbar = () => {
                         <Link to="/create">🌁 Create</Link>
                         <Link to="/myadventures">❤️ Likes</Link>
                         <Link to="/deleteadventures">📥 My Adventures</Link>
-                        <button onClick={handleClick}>Logout {user.userName}</button>
+                        <button onClick={handleClick}>Logout {user.userName} {user.location}</button>
                     </div>
                     )}
                     {!user &&(

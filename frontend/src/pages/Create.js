@@ -59,13 +59,13 @@ const Create = () => {
               <option value="Other">Other</option>
           </select>
 
-            <input type ="text" placeholder = "Booking Link" onChange={(e) => setBookingLink(e.target.value)} value = {bookingLink}/>   
+          <input type ="text" placeholder = "Booking Link" onChange={(e) => setBookingLink(e.target.value)} value = {bookingLink}/>   
 
-            <input type ="text" placeholder = "Image Link" onChange={(e) => setImageLink(e.target.value)} value = {imageLink}/>  
+          <input type ="text" placeholder = "Image Link" onChange={(e) => setImageLink(e.target.value)} value = {imageLink}/>  
             
-            <button disabled={isLoading}>Create</button>
+          <button disabled={isLoading}>Create</button>
             
-            {error && <div className ="error">{error}</div>}
+          {error && <div className ="error">{error}</div>}
         
         </form>
     )
